@@ -1,0 +1,61 @@
+{
+  "packageId": "com.malimongkhon.estodolist",
+  "host": "quiet-jalebi-3488f6.netlify.app",
+  "name": "esTodo-List",
+  "launcherName": "esTodo",
+  "display": "standalone",
+  "themeColor": "#6C63FF",
+  "themeColorDark": "#000000",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#6C63FF",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://quiet-jalebi-3488f6.netlify.app/icons/icon-512.png",
+  "maskableIconUrl": "https://quiet-jalebi-3488f6.netlify.app/icons/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "/Users/peeraphatmalimongkhon/Desktop/todolistWebapp/android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [
+    {
+      "name": "Add Task",
+      "shortName": "Add",
+      "url": "https://quiet-jalebi-3488f6.netlify.app/?action=add",
+      "chosenIconUrl": "https://quiet-jalebi-3488f6.netlify.app/icons/icon-96.png"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://quiet-jalebi-3488f6.netlify.app/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "playBilling": {
+      "enabled": true
+    },
+    "locationDelegation": {
+      "enabled": true
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://quiet-jalebi-3488f6.netlify.app/",
+  "minSdkVersion": 21,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "protocolHandlers": [],
+  "fileHandlers": [],
+  "launchHandlerClientMode": "",
+  "displayOverride": [],
+  "appVersion": "1"
+}
