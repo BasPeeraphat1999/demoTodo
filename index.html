@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#6C63FF" />
+  <meta name="description" content="A beautiful and simple to-do list app to manage your daily tasks." />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="TodoApp" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>TodoApp</title>
+</head>
+<body>
+  <div class="app-wrapper">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="header-title">
+          <span class="header-icon">✅</span>
+          <h1>TodoApp</h1>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+      <div class="header-stats">
+        <div class="stat-card">
+          <span class="stat-number" id="totalCount">0</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="activeCount">0</span>
+          <span class="stat-label">Active</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="doneCount">0</span>
+          <span class="stat-label">Done</span>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-label" id="progressLabel">0% complete</span>
+      </div>
+    </header>
+
+    <!-- Add Task -->
+    <section class="add-section">
+      <div class="input-group">
+        <input type="text" id="taskInput" class="task-input" placeholder="Add a new task..." maxlength="120" autocomplete="off" />
+        <select id="prioritySelect" class="priority-select" aria-label="Priority">
+          <option value="medium">🟡 Medium</option>
+          <option value="high">🔴 High</option>
+          <option value="low">🟢 Low</option>
+        </select>
+      </div>
+      <div class="input-row">
+        <div class="datetime-group">
+          <div class="datetime-field">
+            <span class="datetime-label">📅 Date</span>
+            <input type="date" id="dueDateInput" class="date-input" aria-label="Due date" />
+          </div>
+          <div class="datetime-field">
+            <span class="datetime-label">⏰ Time</span>
+            <input type="time" id="dueTimeInput" class="time-input" aria-label="Due time" />
+          </div>
+        </div>
+        <button class="add-btn" id="addBtn">
+          <span class="add-btn-icon">+</span> Add Task
+        </button>
+      </div>
+    </section>
+
+    <!-- Filter & Search -->
+    <section class="filter-section">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search tasks..." />
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Done</button>
+        <button class="filter-btn" data-filter="high">🔴 High</button>
+      </div>
+    </section>
+
+    <!-- Task List -->
+    <main class="task-list-container">
+      <ul class="task-list" id="taskList" aria-label="Task list"></ul>
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">📋</div>
+        <p class="empty-title">No tasks yet!</p>
+        <p class="empty-sub">Add your first task above to get started.</p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <button class="footer-btn" id="clearCompletedBtn">🗑 Clear Completed</button>
+      <button class="footer-btn danger" id="clearAllBtn">⚠️ Clear All</button>
+    </footer>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h2 class="modal-title">Edit Task</h2>
+      <input type="text" id="editInput" class="task-input" maxlength="120" />
+      <select id="editPriority" class="priority-select" style="width:100%;margin-top:10px;">
+        <option value="high">🔴 High</option>
+        <option value="medium">🟡 Medium</option>
+        <option value="low">🟢 Low</option>
+      </select>
+      <div class="modal-datetime-row">
+        <input type="date" id="editDueDate" class="date-input" />
+        <input type="time" id="editDueTime" class="time-input" />
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn cancel" id="cancelEdit">Cancel</button>
+        <button class="modal-btn save" id="saveEdit">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
